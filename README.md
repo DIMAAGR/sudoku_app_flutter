@@ -57,6 +57,28 @@ Certifique-se de testar cada funcionalidade da engine do jogo para garantir seu 
 Com essa engine de jogo, você pode criar aplicativos, jogos ou até mesmo um site para jogar Sudoku e desafiar jogadores de todo o mundo a exercitar suas habilidades de lógica e raciocínio. Divirta-se criando e jogando Sudoku!
 
 -----------------------------------------------------------------------------------------------------------------
+# Testes Da Aplicação
+
+Este projeto inclui um conjunto abrangente de testes para garantir que todas as funcionalidades estejam funcionando conforme o esperado. Os testes são organizados em diferentes categorias e podem ser encontrados no diretório `test`:
+
+### Testes Unitários
+
+Os testes unitários visam testar unidades individuais de código, como funções e métodos, de forma isolada para garantir que cada parte do código funcione corretamente.
+
+- `test/unit/engine/engine_test.dart`: Este arquivo contém os testes unitários para a classe `GameEngine`, que é responsável pela lógica do jogo Sudoku. Os testes garantem que a geração, configuração e resolução dos quebra-cabeças Sudoku funcionem corretamente.
+
+### Testes de Integração
+
+Os testes de integração verificam se os diferentes componentes do sistema funcionam corretamente juntos como um todo. Eles garantem que as interações entre os diferentes módulos e funcionalidades estejam funcionando conforme o esperado.
+
+### Testes de Interface do Usuário (UI)
+
+Os testes de interface do usuário são responsáveis por verificar se a interface do usuário do aplicativo funciona corretamente, incluindo a navegação entre telas, interações do usuário e renderização correta dos elementos visuais.
+
+### Testes Conjuntivos
+
+Os testes conjuntivos garantem que as diferentes partes do sistema se integrem sem problemas, verificando se os diferentes módulos e componentes se comunicam e cooperam corretamente entre si.
+-----------------------------------------------------------------------------------------------------------------
 
 # Organização das Pastas
 
@@ -95,3 +117,11 @@ Com essa engine de jogo, você pode criar aplicativos, jogos ou até mesmo um si
                 - start_page_module.dart
         - app_module.dart
     - main.dart
+- test
+    - conjuntive
+    - integration
+    - ui
+    - unit
+        - engine
+            - engine_test.dart
+        - ansi_color.dart
