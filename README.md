@@ -32,11 +32,52 @@ Aceitamos contribuições e estamos abertos a discussões sobre a arquitetura do
 
 -----------------------------------------------------------------------------------------------------------------
 
+# Funcionamento da Engine do Jogo
+
+A classe `GameEngine` é o coração do jogo, responsável por gerar, configurar e resolver os quebra-cabeças Sudoku. Aqui está uma visão geral de como ela funciona:
+
+- **Geração do Grid**: A função `generateGrid(Difficulty difficulty)` cria um novo quebra-cabeça Sudoku com base na dificuldade especificada. Ela preenche uma matriz 9x9 (_completedGameMatrix_) com números válidos e, em seguida, remove alguns números para criar o quebra-cabeça jogável (_playableGameMatrix_).
+
+- **Definição de Números**: A função `setNumberOnGrid` permite que o jogador insira um número válido em uma célula vazia do quebra-cabeça jogável.
+
+- **Verificação de Números**: A função `checkNumberOnGrid` verifica se um número inserido pelo jogador em uma célula do quebra-cabeça jogável corresponde ao número correto na mesma posição do quebra-cabeça completo.
+
+### Como Utilizar a Engine do Jogo
+
+Para utilizar a engine do jogo em seu projeto, siga estas etapas:
+
+1. Importe o arquivo `game_engine.dart`.
+2. Instancie a classe `GameEngine`.
+3. Utilize os métodos `generateGrid`, `setNumberOnGrid`, e `checkNumberOnGrid` conforme necessário para gerar, jogar e verificar o quebra-cabeça Sudoku.
+
+### Testes
+
+Certifique-se de testar cada funcionalidade da engine do jogo para garantir seu funcionamento correto. Você pode criar testes unitários para as funções individuais e testes de integração para verificar o comportamento do jogo como um todo.
+
+Com essa engine de jogo, você pode criar aplicativos, jogos ou até mesmo um site para jogar Sudoku e desafiar jogadores de todo o mundo a exercitar suas habilidades de lógica e raciocínio. Divirta-se criando e jogando Sudoku!
+
+-----------------------------------------------------------------------------------------------------------------
+
 # Organização das Pastas
 
 - lib
     - src
         - core
+            - engine
+                - entities
+                    - coordinates.dart
+                - extensions
+                    - int_extensions.dart
+                - models
+                    - grid.dart
+                - exceptions
+                    - game_exception.dart
+                    - higher_case_exception.dart
+                    - invalid_move_exception.dart
+                    - invalid_number_exception.dart
+                    - matrix_exception.dart
+                - game_engine.dart
+                - game_solver.dart
             - app
                 - main_app.dart
             - const
