@@ -7,6 +7,7 @@ A simplicidade das regras e a necessidade de raciocínio lógico fizeram com que
 
 Desde então, o Sudoku tem permanecido como um dos quebra-cabeças mais populares do mundo, desafiando pessoas de todas as idades a exercitar suas habilidades de lógica e raciocínio. Ele encontrou seu lugar em jornais, livros, aplicativos e competições, tornando-se um passatempo intemporal e universal.
 
+-----------------------------------------------------------------------------------------------------------------
 
 # Sobre a Arquitetura do Projeto
 
@@ -28,3 +29,28 @@ O objetivo principal é manter o código limpo e flexível, facilitando a manute
 ### Contribuições e Discussões
 
 Aceitamos contribuições e estamos abertos a discussões sobre a arquitetura do projeto. Se você tiver sugestões ou insights valiosos, sinta-se à vontade para compartilhar. Juntos, podemos manter o código limpo, flexível e adequado às necessidades específicas desta aplicação.
+
+-----------------------------------------------------------------------------------------------------------------
+
+# Organização das Pastas
+
+- lib
+    - src
+        - core
+            - app
+                - main_app.dart
+            - const
+                - const.dart
+                - colors.dart
+                - routes.dart
+            - theme
+                - app_theme.dart
+                - dark.dart
+                - light.dart
+        - modules
+            - start_page
+                - presentations
+                    - start_page_view.dart
+                - start_page_module.dart
+        - app_module.dart
+    - main.dart
