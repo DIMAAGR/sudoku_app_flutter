@@ -3,6 +3,10 @@ class Coordinate {
       : _x = row,
         _y = column;
 
+  Coordinate.fromLinearIndex(int number)
+      : _x = number ~/ 9,
+        _y = number % 9;
+
   final int _x;
   final int _y;
 
