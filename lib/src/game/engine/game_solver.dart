@@ -25,12 +25,11 @@ class GameSolver {
 
   bool _solveSudoku(Grid grid) {
     for (int i = 0; i < 81; i++) {
-      int row = i ~/ grid.columnSize;
-      int col = i % grid.columnSize;
-      if (grid.matrix[row][col] == 0) {
+      Coordinate coord = Coordinate.fromLinearIndex(i);
+      if (grid.matrix[coord.row][coord.column] == 0) {
         for (int value = 1; value <= 9; value++) {
-          if (isNumberValidToAdd(grid, Coordinate(row, col), value)) {
-            grid.matrix[row][col] = value;
+          if (isNumberValidToAdd(grid, coord, value)) {
+            grid.matrix[coord.row][coord.column] = value;
             if (grid.checkGrid()) {
               return true; // Found a solution
             } else {
@@ -40,7 +39,7 @@ class GameSolver {
             }
           }
         }
-        grid.matrix[row][col] = 0; // Backtrack if no valid value is found
+        grid.matrix[coord.row][coord.column] = 0; // Backtrack if no valid value is found
       }
     }
     return false; // No solution found for this branch

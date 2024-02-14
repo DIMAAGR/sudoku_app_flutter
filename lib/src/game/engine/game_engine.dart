@@ -8,11 +8,11 @@ import 'package:sudoku/src/game/exceptions/higher_case_exception.dart';
 import 'package:sudoku/src/game/exceptions/invalid_move_exception.dart';
 import 'package:sudoku/src/game/exceptions/matrix_exception.dart';
 
+import 'enums/difficulty_leve.dart';
+
 // =====================================================================================================================
 // Based on Sudoku Generator Algorithm from 101computing.net
 // =====================================================================================================================
-
-enum Difficulty { easy, medium, hard, expert }
 
 /// The main class representing the Sudoku game engine.
 ///
@@ -20,9 +20,9 @@ enum Difficulty { easy, medium, hard, expert }
 class GameEngine {
   final Map<Difficulty, int> _difficultyMap = {
     Difficulty.easy: 30,
-    Difficulty.medium: 40,
-    Difficulty.hard: 50,
-    Difficulty.expert: 60,
+    Difficulty.medium: 55,
+    Difficulty.hard: 65,
+    Difficulty.expert: 72,
   };
 
   final Grid _playableGameMatrix = Grid.empty();
@@ -74,6 +74,35 @@ class GameEngine {
     }
   }
 
+  /// Returns the number present in the playable grid at the specified linear index.
+  ///
+  /// Parameters:
+  ///   - number: The linear index of the position in the grid.
+  ///
+  /// Returns:
+  ///   The number present at the specified linear index of the playable grid.
+  ///
+  /// Example Usage:
+  ///   ```dart
+  ///   int number = gameEngine.getNumberAtLinearIndex(28);
+  ///   ```
+  ///   in grid:
+  ///  - [0, 9, 5, 8, 4, 3, 1, 0, 2]
+  ///  - [1, 0, 0, 0, 6, 7, 5, 0, 9]
+  ///  - [7, 2, 0, 0, 0, 1, 6, 0, 0]
+  ///  - [4, 6, 0, 1, 0, 9, 0, 5, 0]
+  ///  - [0, 5, 8, 0, 0, 4, 9, 2, 1]
+  ///  - [0, 0, 2, 5, 3, 0, 4, 6, 7]
+  ///  - [5, 4, 6, 0, 0, 2, 0, 9, 8]
+  ///  - [0, 7, 1, 3, 0, 6, 0, 0, 5]
+  ///  - [2, 3, 9, 4, 0, 5, 7, 0, 6]
+  ///
+  ///   THE OUTPUT IS: 4
+  int getNumberAtLinearIndex(int number) {
+    Coordinate coordinate = Coordinate.fromLinearIndex(number);
+    return playableGrid.matrix[coordinate.row][coordinate.column];
+  }
+
   /// Checks if a number at the specified [row] and [col] on the completed grid is equal to [number].
   ///
   /// Returns `true` if the number is correct, `false` otherwise.
@@ -113,22 +142,21 @@ class GameEngine {
 
   _fillGrid() {
     for (int i = 0; i < _completedGameMatrix.size; i++) {
-      int row = i ~/ _completedGameMatrix.columnSize;
-      int col = i % _completedGameMatrix.columnSize;
+      Coordinate coord = Coordinate.fromLinearIndex(i);
 
-      if (_completedGameMatrix.matrix[row][col] == 0) {
+      if (_completedGameMatrix.matrix[coord.row][coord.column] == 0) {
         List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         numberList.shuffle();
 
         for (int value in numberList) {
-          if (_gameSolver.isNumberValidToAdd(_completedGameMatrix, Coordinate(row, col), value)) {
-            _completedGameMatrix.matrix[row][col] = value;
+          if (_gameSolver.isNumberValidToAdd(_completedGameMatrix, coord, value)) {
+            _completedGameMatrix.matrix[coord.row][coord.column] = value;
             if (_fillGrid()) {
               return true;
             }
           }
         }
-        _completedGameMatrix.matrix[row][col] = 0;
+        _completedGameMatrix.matrix[coord.row][coord.column] = 0;
         return false;
       }
     }
