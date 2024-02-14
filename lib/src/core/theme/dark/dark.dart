@@ -22,6 +22,9 @@ class DarkTheme extends InternalAppThemeModel {
       );
 
   @override
+  InternalAppColors get appColors => AppColors.dark;
+
+  @override
   ButtonStyle get lightButton => ElevatedButton.styleFrom(
         backgroundColor: AppColors.dark.defaultLightButtonColor,
         surfaceTintColor: AppColors.dark.defaultLightButtonColor,
@@ -50,4 +53,16 @@ class DarkTheme extends InternalAppThemeModel {
       elevatedButtonTheme: ElevatedButtonThemeData(style: instance.darkButton),
     );
   }
+
+  @override
+  TextStyle get incorrectNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.dark.wrongNumberText);
+
+  @override
+  TextStyle get presetNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.dark.presetedNumberText);
+
+  @override
+  TextStyle get userInputNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.dark.definedByUserNumberText);
+
+  @override
+  TextStyle get actualSelectedNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.dark.selectedNumberText);
 }

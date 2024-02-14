@@ -18,6 +18,9 @@ class LightTheme extends InternalAppThemeModel {
   static final LightTheme instance = LightTheme();
 
   @override
+  InternalAppColors get appColors => AppColors.light;
+
+  @override
   TextStyle get title => GoogleFonts.poppins(
         fontSize: 32,
         fontWeight: FontWeight.w700,
@@ -50,4 +53,16 @@ class LightTheme extends InternalAppThemeModel {
           fontWeight: FontWeight.w700,
         ),
       );
+
+  @override
+  TextStyle get incorrectNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.light.wrongNumberText);
+
+  @override
+  TextStyle get presetNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.light.presetedNumberText);
+
+  @override
+  TextStyle get userInputNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.light.definedByUserNumberText);
+
+  @override
+  TextStyle get actualSelectedNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.light.selectedNumberText);
 }

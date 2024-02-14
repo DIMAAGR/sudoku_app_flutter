@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/src/core/const/colors.dart';
 import 'package:sudoku/src/core/theme/dark/dark.dart';
 import 'package:sudoku/src/core/theme/light/light.dart';
 
@@ -24,8 +25,15 @@ class AppTheme {
 }
 
 abstract class InternalAppThemeModel {
+  InternalAppColors get appColors;
+
   ButtonStyle get iconButton;
   ButtonStyle get lightButton;
   ButtonStyle get darkButton;
   TextStyle get title;
+
+  TextStyle get presetNumberText;
+  TextStyle get userInputNumberText;
+  TextStyle get incorrectNumberText;
+  TextStyle get actualSelectedNumberText;
 }
