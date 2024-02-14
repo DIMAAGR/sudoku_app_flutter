@@ -1,3 +1,5 @@
+import 'package:sudoku/src/game/engine/entities/coordinate.dart';
+
 /// Represents a Sudoku grid.
 class Grid {
   /// The 2D matrix representing the Sudoku grid.
@@ -34,6 +36,35 @@ class Grid {
     for (var line in matrix) {
       line.fillRange(0, columnSize, 0);
     }
+  }
+
+  /// Returns the number present in the playable grid at the specified linear index.
+  ///
+  /// Parameters:
+  ///   - number: The linear index of the position in the grid.
+  ///
+  /// Returns:
+  ///   The number present at the specified linear index of the playable grid.
+  ///
+  /// Example Usage:
+  ///   ```dart
+  ///   int number = gameEngine.fromLinearIndex(28);
+  ///   ```
+  ///   in grid:
+  ///  [0, 9, 5, 8, 4, 3, 1, 0, 2]
+  ///  [1, 0, 0, 0, 6, 7, 5, 0, 9]
+  ///  [7, 2, 0, 0, 0, 1, 6, 0, 0]
+  ///  [4, 6, 0, 1, 0, 9, 0, 5, 0]
+  ///  [0, 5, 8, 0, 0, 4, 9, 2, 1]
+  ///  [0, 0, 2, 5, 3, 0, 4, 6, 7]
+  ///  [5, 4, 6, 0, 0, 2, 0, 9, 8]
+  ///  [0, 7, 1, 3, 0, 6, 0, 0, 5]
+  ///  [2, 3, 9, 4, 0, 5, 7, 0, 6]
+  ///
+  ///   THE OUTPUT IS: 4
+  int fromLinearIndex(int number) {
+    Coordinate coordinate = Coordinate.fromLinearIndex(number);
+    return matrix[coordinate.row][coordinate.column];
   }
 
   /// Returns a subgrid of the original matrix.
