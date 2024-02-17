@@ -8,7 +8,7 @@ import 'package:sudoku/src/game/exceptions/higher_case_exception.dart';
 import 'package:sudoku/src/game/exceptions/invalid_move_exception.dart';
 import 'package:sudoku/src/game/exceptions/matrix_exception.dart';
 
-import 'enums/difficulty_leve.dart';
+import 'enums/difficulty_level.dart';
 
 // =====================================================================================================================
 // Based on Sudoku Generator Algorithm from 101computing.net

@@ -11,7 +11,7 @@ main() {
       pontuationSystem.decreaseUserPontuation();
       pontuationSystem.decreaseUserPontuation();
 
-      expect(pontuationSystem.actualPontuation.pontuation, equals(0));
+      expect(pontuationSystem.pontuation, equals(0));
     });
 
     test('Tests different increases value according by difficult level', () {
@@ -20,25 +20,77 @@ main() {
       PontuationSystem easy = PontuationSystem(Difficulty.easy);
       easy.increaseUserPontuation();
 
-      expect(easy.actualPontuation.pontuation, greaterThan(oldPontuation));
-      oldPontuation = easy.actualPontuation.pontuation;
+      expect(easy.pontuation, greaterThan(oldPontuation));
+      oldPontuation = easy.pontuation;
 
       PontuationSystem medium = PontuationSystem(Difficulty.medium);
       medium.increaseUserPontuation();
 
-      expect(medium.actualPontuation.pontuation, greaterThan(oldPontuation));
-      oldPontuation = medium.actualPontuation.pontuation;
+      expect(medium.pontuation, greaterThan(oldPontuation));
+      oldPontuation = medium.pontuation;
 
       PontuationSystem hard = PontuationSystem(Difficulty.hard);
       hard.increaseUserPontuation();
 
-      expect(hard.actualPontuation.pontuation, greaterThan(oldPontuation));
-      oldPontuation = hard.actualPontuation.pontuation;
+      expect(hard.pontuation, greaterThan(oldPontuation));
+      oldPontuation = hard.pontuation;
 
       PontuationSystem expert = PontuationSystem(Difficulty.expert);
       expert.increaseUserPontuation();
 
-      expect(expert.actualPontuation.pontuation, greaterThan(oldPontuation));
+      expect(expert.pontuation, greaterThan(oldPontuation));
+    });
+
+    test('tests the progressive score increase according to the successes in a row', () {
+      int oldProgressivePontuation = 0;
+      PontuationSystem easy = PontuationSystem(Difficulty.easy);
+      easy.increaseUserPontuation();
+      expect(easy.pontuation, greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = easy.pontuation;
+      easy.increaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = (easy.pontuation - oldProgressivePontuation);
+      easy.increaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = (easy.pontuation - oldProgressivePontuation);
+      easy.increaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = (easy.pontuation - oldProgressivePontuation);
+      easy.increaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = (easy.pontuation - oldProgressivePontuation);
+      easy.increaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = (easy.pontuation - oldProgressivePontuation);
+      easy.increaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), greaterThan(oldProgressivePontuation));
+      oldProgressivePontuation = (easy.pontuation - oldProgressivePontuation);
+    });
+
+    test('tests the progressive score decrease according to the successes in a row', () {
+      int oldProgressivePontuation = 0;
+      int oldDecreaseValue = 0;
+      PontuationSystem easy = PontuationSystem(Difficulty.easy);
+      easy.increaseUserPontuation();
+      easy.increaseUserPontuation();
+      easy.increaseUserPontuation();
+      easy.increaseUserPontuation();
+      easy.increaseUserPontuation();
+      easy.increaseUserPontuation();
+      easy.increaseUserPontuation();
+      oldProgressivePontuation = easy.pontuation;
+      easy.decreaseUserPontuation();
+      oldDecreaseValue = easy.pontuation - oldProgressivePontuation;
+      easy.decreaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), lessThan(oldDecreaseValue));
+      oldDecreaseValue = easy.pontuation - oldProgressivePontuation;
+      easy.decreaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), lessThan(oldDecreaseValue));
+      oldDecreaseValue = easy.pontuation - oldProgressivePontuation;
+      easy.decreaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), lessThan(oldDecreaseValue));
+      easy.decreaseUserPontuation();
+      expect((easy.pontuation - oldProgressivePontuation), lessThan(oldDecreaseValue));
     });
   });
 }
