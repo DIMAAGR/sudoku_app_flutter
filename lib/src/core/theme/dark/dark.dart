@@ -55,6 +55,17 @@ class DarkTheme extends InternalAppThemeModel {
   }
 
   @override
+  ButtonStyle get difficultyButton => ElevatedButton.styleFrom(
+        foregroundColor: AppColors.dark.defaultTextColor,
+        backgroundColor: Colors.transparent,
+        textStyle: GoogleFonts.poppins(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: AppColors.dark.defaultTextColor,
+        ),
+      );
+
+  @override
   TextStyle get incorrectNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.dark.wrongNumberText);
 
   @override

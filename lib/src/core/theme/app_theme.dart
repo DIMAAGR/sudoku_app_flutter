@@ -30,6 +30,7 @@ abstract class InternalAppThemeModel {
   ButtonStyle get iconButton;
   ButtonStyle get lightButton;
   ButtonStyle get darkButton;
+  ButtonStyle get difficultyButton;
   TextStyle get title;
 
   TextStyle get presetNumberText;

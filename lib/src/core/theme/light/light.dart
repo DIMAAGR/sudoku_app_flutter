@@ -55,6 +55,17 @@ class LightTheme extends InternalAppThemeModel {
       );
 
   @override
+  ButtonStyle get difficultyButton => ElevatedButton.styleFrom(
+        foregroundColor: AppColors.light.defaultTextColor,
+        backgroundColor: Colors.transparent,
+        textStyle: GoogleFonts.poppins(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: AppColors.light.defaultTextColor,
+        ),
+      );
+
+  @override
   TextStyle get incorrectNumberText => GoogleFonts.poppins(fontSize: 16, color: AppColors.light.wrongNumberText);
 
   @override
