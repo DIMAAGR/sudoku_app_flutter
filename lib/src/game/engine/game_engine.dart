@@ -19,10 +19,10 @@ import 'enums/difficulty_level.dart';
 /// This class manages the generation, configuration, and solving of Sudoku grids.
 class GameEngine {
   final Map<Difficulty, int> _difficultyMap = {
-    Difficulty.easy: 30,
-    Difficulty.medium: 55,
-    Difficulty.hard: 65,
-    Difficulty.expert: 72,
+    Difficulty.easy: 36,
+    Difficulty.medium: 46,
+    Difficulty.hard: 54,
+    Difficulty.expert: 62,
   };
 
   final Grid _playableGameMatrix = Grid.empty();
@@ -129,10 +129,18 @@ class GameEngine {
 
   _removeNumbersForPlayableGrid(Difficulty difficulty) {
     int cellsToRemove = _difficultyMap[difficulty] ?? 40;
-
     for (int i = 0; i < cellsToRemove; i++) {
-      int row = Random().nextInt(_playableGameMatrix.lineSize);
-      int col = Random().nextInt(_playableGameMatrix.columnSize);
+      bool isCellEmpty = true;
+      late int row, col;
+
+      while (isCellEmpty) {
+        row = Random().nextInt(_playableGameMatrix.lineSize);
+        col = Random().nextInt(_playableGameMatrix.columnSize);
+
+        if (_playableGameMatrix.matrix[row][col].isNotEmpty) {
+          isCellEmpty = false;
+        }
+      }
 
       if (_playableGameMatrix.matrix[row][col].isNotEmpty) {
         _playableGameMatrix.matrix[row][col] = 0;
