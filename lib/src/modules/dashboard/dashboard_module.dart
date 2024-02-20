@@ -19,6 +19,6 @@ class DashboardModule extends Module {
 
   @override
   void routes(r) {
-    r.child(Modular.initialRoute, child: (ctx) => const GameDashboardView());
+    r.child(Modular.initialRoute, child: (ctx) => GameDashboardView(difficulty: r.args.data));
   }
 }
