@@ -45,6 +45,7 @@ class DarkTheme extends InternalAppThemeModel {
 
   static ThemeData get theme {
     return ThemeData(
+      iconTheme: IconThemeData(color: AppColors.dark.defaultTextColor),
       scaffoldBackgroundColor: AppColors.dark.backgroundColor,
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.dark.backgroundColor,
@@ -63,6 +64,27 @@ class DarkTheme extends InternalAppThemeModel {
           fontWeight: FontWeight.w700,
           color: AppColors.dark.defaultTextColor,
         ),
+      );
+
+  @override
+  TextStyle get stopwatch => GoogleFonts.poppins(
+        fontWeight: FontWeight.w400,
+        fontSize: 32,
+        color: AppColors.dark.defaultTextColor,
+      );
+
+  @override
+  TextStyle get pontuation => GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.dark.defaultTextColor,
+      );
+
+  @override
+  TextStyle get pause => GoogleFonts.poppins(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        color: AppColors.dark.defaultTextColor,
       );
 
   @override

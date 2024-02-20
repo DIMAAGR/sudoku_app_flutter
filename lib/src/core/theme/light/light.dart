@@ -6,6 +6,7 @@ import 'package:sudoku/src/core/theme/app_theme.dart';
 class LightTheme extends InternalAppThemeModel {
   static ThemeData get theme {
     return ThemeData(
+      iconTheme: IconThemeData(color: AppColors.light.defaultTextColor),
       scaffoldBackgroundColor: AppColors.light.backgroundColor,
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.light.backgroundColor,
@@ -63,6 +64,27 @@ class LightTheme extends InternalAppThemeModel {
           fontWeight: FontWeight.w700,
           color: AppColors.light.defaultTextColor,
         ),
+      );
+
+  @override
+  TextStyle get stopwatch => GoogleFonts.poppins(
+        fontWeight: FontWeight.w400,
+        fontSize: 48,
+        color: AppColors.light.defaultTextColor,
+      );
+
+  @override
+  TextStyle get pontuation => GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.light.defaultTextColor,
+      );
+
+  @override
+  TextStyle get pause => GoogleFonts.poppins(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        color: AppColors.light.defaultTextColor,
       );
 
   @override

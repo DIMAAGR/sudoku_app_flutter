@@ -31,10 +31,13 @@ abstract class InternalAppThemeModel {
   ButtonStyle get lightButton;
   ButtonStyle get darkButton;
   ButtonStyle get difficultyButton;
-  TextStyle get title;
 
   TextStyle get presetNumberText;
   TextStyle get userInputNumberText;
   TextStyle get incorrectNumberText;
   TextStyle get actualSelectedNumberText;
+  TextStyle get title;
+  TextStyle get pause;
+  TextStyle get stopwatch;
+  TextStyle get pontuation;
 }
