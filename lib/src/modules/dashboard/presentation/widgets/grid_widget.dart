@@ -20,7 +20,10 @@ class SudokuGrid extends StatelessWidget {
           crossAxisCount: 3,
           padding: const EdgeInsets.all(1),
           children: List.generate(9, (index) {
-            return SubGrid(subgridPosition: index);
+            return Padding(
+              padding: const EdgeInsets.all(0.2),
+              child: SubGrid(subgridPosition: index),
+            );
           }),
         ),
       ),

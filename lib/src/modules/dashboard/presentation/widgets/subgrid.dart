@@ -92,7 +92,7 @@ class SubGrid extends StatelessWidget {
             }
 
             if (isWrong) {
-              type =  CellType.wrong;
+              type = CellType.wrong;
             }
 
             return SudokuCell(
