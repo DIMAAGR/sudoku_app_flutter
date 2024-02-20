@@ -19,11 +19,19 @@ import 'package:sudoku/src/game/engine/models/sequence.dart';
 import '../models/pontuation.dart';
 
 class PontuationSystem {
-  PontuationSystem(Difficulty difficulty) : _difficulty = difficulty;
+  PontuationSystem(Difficulty difficulty)
+      : _difficulty = difficulty,
+        _actualPontuation = Pontuation(0),
+        _sequences = Sequence();
+
+  PontuationSystem.fromOldPontuation(PontuationSystem pontuationSystem)
+      : _difficulty = pontuationSystem._difficulty,
+        _actualPontuation = pontuationSystem._actualPontuation,
+        _sequences = pontuationSystem._sequences;
 
   final Difficulty _difficulty;
-  final Pontuation _actualPontuation = Pontuation(0);
-  final Sequence _sequences = Sequence();
+  final Pontuation _actualPontuation;
+  final Sequence _sequences;
 
   int get sequences => _sequences.count;
   int get pontuation => _actualPontuation.pontuation;
@@ -49,7 +57,7 @@ class PontuationSystem {
 
   void increaseUserPontuation() {
     _checkSequence(SequenceType.increase);
-    final valueToIncrease = (25 + (25 * .15) + (25 * _difficultyPercentage) + _sequences.count).round();
+    final valueToIncrease = (50 + (25 * .15) + (50 * _difficultyPercentage) + _sequences.count).round();
     _actualPontuation.increase(valueToIncrease);
   }
 
@@ -67,9 +75,9 @@ class PontuationSystem {
   }
 
   double get _difficultyPercentage => switch (_difficulty) {
-        Difficulty.easy => .05,
-        Difficulty.medium => .10,
-        Difficulty.hard => .15,
-        Difficulty.expert => .20,
+        Difficulty.easy => .12,
+        Difficulty.medium => .20,
+        Difficulty.hard => .35,
+        Difficulty.expert => .40,
       };
 }
