@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:sudoku/src/core/const/routes.dart';
 import 'package:sudoku/src/core/const/spaces.dart';
 import 'package:sudoku/src/core/theme/app_theme.dart';
+import 'package:sudoku/src/modules/start_page/presentations/widgets/select_difficulty_bottom_sheet.dart';
 import 'package:sudoku/src/modules/start_page/presentations/widgets/start_page_button_list.dart';
 
 class StartPageView extends StatelessWidget {
   const StartPageView({super.key});
 
-  void _onNewgamePressed() {
-    Modular.to.pushNamed(AppRoutes.dashboard);
+  void _onNewgamePressed(BuildContext context) {
+    showModalBottomSheet(
+      backgroundColor: AppTheme.actualTheme(context).appColors.backgroundColor,
+      context: context,
+      builder: (context) => const SelectDifficultyBottomSheet(),
+    );
+
+    //Modular.to.pushNamed(AppRoutes.dashboard);
   }
 
   @override
@@ -35,7 +40,7 @@ class StartPageView extends StatelessWidget {
             hasSavedGame: false,
             onContinuePressed: () {},
             onScorePressed: () {},
-            onNewGamePressed: _onNewgamePressed,
+            onNewGamePressed: () => _onNewgamePressed(context),
           ),
         ),
       ],
