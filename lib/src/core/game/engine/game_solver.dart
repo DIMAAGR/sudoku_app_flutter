@@ -1,6 +1,6 @@
-import 'package:sudoku/src/game/engine/entities/coordinate.dart';
-import 'package:sudoku/src/game/engine/models/grid.dart';
-import 'package:sudoku/src/game/exceptions/invalid_number_exception.dart';
+import 'package:sudoku/src/core/game/engine/entities/coordinate.dart';
+import 'package:sudoku/src/core/game/engine/models/grid.dart';
+import 'package:sudoku/src/core/game/exceptions/invalid_number_exception.dart';
 
 class GameSolver {
   GameSolver();

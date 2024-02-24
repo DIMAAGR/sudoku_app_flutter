@@ -13,8 +13,8 @@
  *  ====================================================================================================================
  */
 
-import 'package:sudoku/src/game/engine/enums/difficulty_level.dart';
-import 'package:sudoku/src/game/engine/models/sequence.dart';
+import 'package:sudoku/src/core/game/engine/enums/difficulty_level.dart';
+import 'package:sudoku/src/core/game/engine/models/sequence.dart';
 
 import '../models/pontuation.dart';
 

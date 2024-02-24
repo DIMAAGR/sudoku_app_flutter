@@ -13,8 +13,6 @@ class StartPageView extends StatelessWidget {
       context: context,
       builder: (context) => const SelectDifficultyBottomSheet(),
     );
-
-    //Modular.to.pushNamed(AppRoutes.dashboard);
   }
 
   @override

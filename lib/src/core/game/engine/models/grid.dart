@@ -1,4 +1,4 @@
-import 'package:sudoku/src/game/engine/entities/coordinate.dart';
+import 'package:sudoku/src/core/game/engine/entities/coordinate.dart';
 
 /// Represents a Sudoku grid.
 class Grid {

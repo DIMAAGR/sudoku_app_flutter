@@ -1,12 +1,12 @@
 import 'dart:math';
 
-import 'package:sudoku/src/game/engine/entities/coordinate.dart';
-import 'package:sudoku/src/game/engine/extensions/int_extensions.dart';
-import 'package:sudoku/src/game/engine/game_solver.dart';
-import 'package:sudoku/src/game/engine/models/grid.dart';
-import 'package:sudoku/src/game/exceptions/higher_case_exception.dart';
-import 'package:sudoku/src/game/exceptions/invalid_move_exception.dart';
-import 'package:sudoku/src/game/exceptions/matrix_exception.dart';
+import 'package:sudoku/src/core/game/engine/entities/coordinate.dart';
+import 'package:sudoku/src/core/game/engine/extensions/int_extensions.dart';
+import 'package:sudoku/src/core/game/engine/game_solver.dart';
+import 'package:sudoku/src/core/game/engine/models/grid.dart';
+import 'package:sudoku/src/core/game/exceptions/higher_case_exception.dart';
+import 'package:sudoku/src/core/game/exceptions/invalid_move_exception.dart';
+import 'package:sudoku/src/core/game/exceptions/matrix_exception.dart';
 
 import 'enums/difficulty_level.dart';
 
