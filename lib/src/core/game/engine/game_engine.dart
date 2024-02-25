@@ -25,12 +25,32 @@ class GameEngine {
     Difficulty.expert: 62,
   };
 
-  final Grid _playableGameMatrix = Grid.empty();
-  final Grid _completedGameMatrix = Grid.empty();
+  final Grid _playableGameMatrix;
+  final Grid _completedGameMatrix;
   final GameSolver _gameSolver = GameSolver();
 
   Grid get completedGrid => _completedGameMatrix;
   Grid get playableGrid => _playableGameMatrix;
+
+  /// Constructs a new [GameEngine] instance with empty grids.
+  ///
+  /// This constructor initializes the [_completedGameMatrix] and [_playableGameMatrix]
+  /// as empty grids, ready to be filled or populated later.
+  GameEngine()
+      : _completedGameMatrix = Grid.empty(),
+        _playableGameMatrix = Grid.empty();
+
+  /// Constructs a new [GameEngine] instance with provided game grids.
+  ///
+  /// This constructor initializes the [_completedGameMatrix] and [_playableGameMatrix]
+  /// with the provided completedMatrix and playableMatrix, respectively.
+  ///
+  /// Parameters:
+  ///   - completedMatrix: The completed grid representing the solved Sudoku puzzle.
+  ///   - playableMatrix: The playable grid representing the Sudoku puzzle with hidden numbers.
+  GameEngine.fromOldGame(Grid completedMatrix, Grid playableMatrix)
+      : _completedGameMatrix = completedMatrix,
+        _playableGameMatrix = playableMatrix;
 
   /// Generates a new Sudoku grid based on the specified [difficulty].
   ///
