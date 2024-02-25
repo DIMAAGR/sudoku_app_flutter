@@ -85,21 +85,42 @@ Os testes conjuntivos garantem que as diferentes partes do sistema se integrem s
 - lib
     - src
         - core
-            - engine
-                - entities
-                    - coordinates.dart
-                - extensions
-                    - int_extensions.dart
-                - models
-                    - grid.dart
+            - game
+                - engine
+                    - entities
+                        - coordinates.dart
+                    - enums
+                        - difficulty_level.dart
+                    - extensions
+                        - int_extensions.dart
+                    - models
+                        - grid.dart
+                        - pontuation.dart
+                        - sequence.dart
+                    - pontuation
+                        - pontuation_system.dart
+                    - game_engine.dart
+                    - game_solver.dart
                 - exceptions
                     - game_exception.dart
                     - higher_case_exception.dart
                     - invalid_move_exception.dart
                     - invalid_number_exception.dart
                     - matrix_exception.dart
-                - game_engine.dart
-                - game_solver.dart
+            - data
+                - database
+                    - hive_client.dart
+                    - models
+                        - player_data.dart
+                        - game_data.dart
+                - repositories
+                    - player_repository.dart
+                    - game_repository.dart
+                - use_case
+                    - save_player_data.dart
+                    - load_player_data.dart
+                    - save_game_data.dart
+                    - load_game_data.dart
             - app
                 - main_app.dart
             - const
@@ -111,7 +132,21 @@ Os testes conjuntivos garantem que as diferentes partes do sistema se integrem s
                 - dark.dart
                 - light.dart
         - modules
+            - dashboard (game page)
+                - controller
+                    - dashboard_controller.dart
+                - presentation
+                    - widgets
+                        - cell_widget.dart
+                        - grid_widget.dart
+                        - stop_watch_text_widget.dart
+                        - subgrid.dart
+                    - game_dashboard_view.dart
+                - dashboard_module.dart
             - start_page
+                - widgets
+                    - select_difficulty_bottom_sheet.dart
+                    - start_page_button_list.dart
                 - presentations
                     - start_page_view.dart
                 - start_page_module.dart
