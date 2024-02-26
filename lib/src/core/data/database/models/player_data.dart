@@ -1,3 +1,4 @@
+import 'package:sudoku/src/core/data/database/exceptions/null_exception.dart';
 import 'package:sudoku/src/core/data/database/models/game_data.dart';
 
 class PlayerData {
@@ -17,12 +18,16 @@ class PlayerData {
   final GameData? _lastGameData;
 
   factory PlayerData.fromJson(Map<String, dynamic> json) {
-    return PlayerData(
-      allGameData: List.generate(json['all_game_data']?.lenght ?? 0, (index) => GameData.fromJSON(json['all_game_data']?[index])),
-      lastGameData: json['last_game_data'],
-      userID: json['user_id'],
-      username: json['username'],
-    );
+    try {
+      return PlayerData(
+        allGameData: List.generate(json['all_game_data']?.lenght ?? 0, (index) => GameData.fromJSON(json['all_game_data']?[index])),
+        lastGameData: json['last_game_data'],
+        userID: json['user_id'],
+        username: json['username'],
+      );
+    } on FormatException catch (e) {
+      throw NullException(message: '${e.source} is null');
+    }
   }
 
   Map<String, dynamic> toJSON() {

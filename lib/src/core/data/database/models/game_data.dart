@@ -1,3 +1,4 @@
+import 'package:sudoku/src/core/data/database/exceptions/null_exception.dart';
 import 'package:sudoku/src/core/game/engine/models/grid.dart';
 import 'package:sudoku/src/core/game/engine/models/pontuation.dart';
 
@@ -26,14 +27,18 @@ class GameData {
   final Map<String, bool>? _correctlyFilledPositions;
 
   factory GameData.fromJSON(Map<String, dynamic> json) {
-    return GameData(
-      pontuation: Pontuation(json['pontuation']),
-      errorCount: json['error_count'],
-      playableGrid: Grid(json['playable_grid']),
-      completedGrid: Grid(json['completed_grid']),
-      userInputPositions: json['user_input_positions'],
-      correctlyFilledPositions: json['correctly_filled_positions'],
-    );
+    try {
+      return GameData(
+        pontuation: Pontuation(json['pontuation']),
+        errorCount: json['error_count'],
+        playableGrid: Grid(json['playable_grid']),
+        completedGrid: Grid(json['completed_grid']),
+        userInputPositions: json['user_input_positions'],
+        correctlyFilledPositions: json['correctly_filled_positions'],
+      );
+    } on FormatException catch (e) {
+      throw NullException(message: '${e.source} is null');
+    }
   }
 
   Map<String, dynamic> toJson() {
