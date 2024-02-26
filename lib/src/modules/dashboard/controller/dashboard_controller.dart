@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku/src/game/engine/enums/difficulty_level.dart';
-import 'package:sudoku/src/game/engine/game_engine.dart';
-import 'package:sudoku/src/game/engine/pontuation/pontuation_system.dart';
+import 'package:sudoku/src/core/game/engine/enums/difficulty_level.dart';
+import 'package:sudoku/src/core/game/engine/game_engine.dart';
+import 'package:sudoku/src/core/game/engine/pontuation/pontuation_system.dart';
 
 class DashboardController extends ChangeNotifier {
   ValueNotifier<GameEngine> game = ValueNotifier(GameEngine());

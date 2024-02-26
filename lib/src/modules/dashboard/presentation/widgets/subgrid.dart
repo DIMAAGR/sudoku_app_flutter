@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:sudoku/src/game/engine/entities/coordinate.dart';
+import 'package:sudoku/src/core/game/engine/entities/coordinate.dart';
 import 'package:sudoku/src/modules/dashboard/controller/dashboard_controller.dart';
 import 'package:sudoku/src/modules/dashboard/presentation/widgets/cell_widget.dart';
 

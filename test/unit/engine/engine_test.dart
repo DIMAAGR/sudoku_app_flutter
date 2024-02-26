@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
-import 'package:sudoku/src/game/engine/entities/coordinate.dart';
-import 'package:sudoku/src/game/engine/enums/difficulty_level.dart';
-import 'package:sudoku/src/game/engine/game_engine.dart';
-import 'package:sudoku/src/game/exceptions/higher_case_exception.dart';
-import 'package:sudoku/src/game/exceptions/invalid_move_exception.dart';
+import 'package:sudoku/src/core/game/engine/entities/coordinate.dart';
+import 'package:sudoku/src/core/game/engine/enums/difficulty_level.dart';
+import 'package:sudoku/src/core/game/engine/game_engine.dart';
+import 'package:sudoku/src/core/game/exceptions/higher_case_exception.dart';
+import 'package:sudoku/src/core/game/exceptions/invalid_move_exception.dart';
 import 'package:test/test.dart';
 
 import '../../ansi_color.dart';

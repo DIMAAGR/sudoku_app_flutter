@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sudoku/src/core/const/routes.dart';
 import 'package:sudoku/src/core/const/spaces.dart';
 import 'package:sudoku/src/core/theme/app_theme.dart';
-import 'package:sudoku/src/game/engine/enums/difficulty_level.dart';
+import 'package:sudoku/src/core/game/engine/enums/difficulty_level.dart';
 
 class SelectDifficultyBottomSheet extends StatelessWidget {
   const SelectDifficultyBottomSheet({super.key});

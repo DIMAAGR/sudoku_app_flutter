@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:sudoku/src/game/engine/enums/difficulty_level.dart';
+import 'package:sudoku/src/core/game/engine/enums/difficulty_level.dart';
 import 'package:sudoku/src/modules/dashboard/controller/dashboard_controller.dart';
 import 'package:test/test.dart';
 
