@@ -30,6 +30,20 @@ class PlayerData {
     }
   }
 
+  PlayerData copyWith(
+    String? userID,
+    String? username,
+    GameData? lastGameData,
+    List<GameData>? allGameData,
+  ) {
+    return PlayerData(
+      userID: userID ?? _userID,
+      username: userName ?? _username,
+      lastGameData: lastGameData ?? _lastGameData,
+      allGameData: allGameData ?? _allGameData,
+    );
+  }
+
   Map<String, dynamic> toJSON() {
     return {
       'all_game_data': _allGameData?.map((e) => e.toJson()).toList(),

@@ -57,6 +57,47 @@ Certifique-se de testar cada funcionalidade da engine do jogo para garantir seu 
 Com essa engine de jogo, você pode criar aplicativos, jogos ou até mesmo um site para jogar Sudoku e desafiar jogadores de todo o mundo a exercitar suas habilidades de lógica e raciocínio. Divirta-se criando e jogando Sudoku!
 
 -----------------------------------------------------------------------------------------------------------------
+# Hive para Persistência de Dados
+
+Neste projeto, utilizamos o Hive como uma solução de banco de dados NoSQL para persistir os dados do jogo de Sudoku. Hive é uma biblioteca leve e eficiente que oferece uma maneira simples e rápida de armazenar e recuperar dados de forma local em dispositivos móveis e web.
+
+### Por que Hive?
+
+Optamos por usar o Hive por várias razões:
+
+1. **Performance**: Hive é extremamente rápido, especialmente para operações de leitura e gravação de dados. Isso é crucial para garantir uma experiência de jogo suave e responsiva para os usuários.
+
+2. **Simplicidade**: Hive é fácil de usar e requer pouca configuração. Sua sintaxe simples e intuitiva torna a persistência de dados uma tarefa simples e direta.
+
+3. **Compatibilidade**: Hive é totalmente compatível com o Flutter e oferece suporte para plataformas móveis (Android e iOS) e web. Isso nos permite desenvolver uma solução de persistência de dados que funciona em uma variedade de dispositivos e ambientes.
+
+### Integração com Repositórios e Casos de Uso
+
+Neste projeto, utilizamos a arquitetura de repositórios e casos de uso para acessar e manipular os dados do Hive de forma organizada e modular. Aqui está como isso é feito:
+
+- **Repositórios**: As classes `PlayerRepository` e `GameRepository` implementam a interface `IPlayerRepository` e `IGameRepository`, respectivamente, para encapsular a lógica de acesso aos dados do Hive. Isso permite que os casos de uso interajam com os dados de forma independente da implementação específica do banco de dados.
+
+- **Casos de Uso**: Os casos de uso, como `LoadPlayerDataUseCase` e `SavePlayerDataUseCase`, são responsáveis por orquestrar as operações relacionadas aos dados do jogador. Eles chamam os métodos apropriados nos repositórios para carregar e salvar os dados, garantindo uma separação clara das responsabilidades e uma maior reutilização de código.
+
+### Exemplo de Uso
+
+Aqui está um exemplo simples de como podemos interagir com o Hive por meio dos repositórios e casos de uso:
+
+```dart
+// Carregando dados do jogador
+final playerID = '123';
+final playerData = await LoadPlayerDataUseCase(playerRepository).call(playerID);
+
+// Salvando dados do jogador
+final updatedPlayerData = playerData.copyWith(name: 'Novo Nome');
+await SavePlayerDataUseCase(playerRepository).call(updatedPlayerData);
+```
+### Testes e Validações
+
+Antes de implementar o Hive em nosso projeto, realizamos testes extensivos para garantir sua funcionalidade e confiabilidade. Além disso, validamos nossa implementação por meio de testes unitários e testes de integração para garantir que os dados sejam salvos e recuperados corretamente.
+
+-----------------------------------------------------------------------------------------------------------------
+
 # Testes Da Aplicação
 
 Este projeto inclui um conjunto abrangente de testes para garantir que todas as funcionalidades estejam funcionando conforme o esperado. Os testes são organizados em diferentes categorias e podem ser encontrados no diretório `test`:

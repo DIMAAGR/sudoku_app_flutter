@@ -4,5 +4,6 @@ import 'package:sudoku/src/core/app/main_app.dart';
 import 'package:sudoku/src/modules/app_module.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(ModularApp(module: AppModule(), child: const MainApp()));
 }

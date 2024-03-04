@@ -41,6 +41,24 @@ class GameData {
     }
   }
 
+  GameData copyWith(
+    Pontuation? pontuation,
+    int? errorCount,
+    Grid? playableGrid,
+    Grid? completedGrid,
+    Map<int, int>? userInputPositions,
+    Map<String, bool>? correctlyFilledPositions,
+  ) {
+    return GameData(
+      pontuation: pontuation ?? _pontuation!,
+      errorCount: errorCount ?? _errorCount!,
+      playableGrid: playableGrid ?? _playableGameGrid!,
+      completedGrid: completedGrid ?? _completedGameGrid!,
+      userInputPositions: userInputPositions ?? _userInputPositions!,
+      correctlyFilledPositions: correctlyFilledPositions ?? _correctlyFilledPositions!,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'pontuation': _pontuation?.pontuation,

@@ -10,7 +10,7 @@ class PlayerRepository implements IPlayerRepository {
   @override
   Future<Either<PlayerData, Failure>> loadPlayerData(String playerID) async {
     try {
-      Map<String, dynamic> data = await (await HiveClient.playerDB).get(playerID) as Map<String, dynamic>;
+      Map<String, dynamic> data = await (await HiveClient.gameDB).get(playerID) as Map<String, dynamic>;
       return Left(PlayerData.fromJson(data));
     } on FormatException catch (e) {
       return Right(Failure(NullException(message: '${e.source} is null')));
@@ -22,7 +22,7 @@ class PlayerRepository implements IPlayerRepository {
   @override
   Future<Either<Ok<void>, Failure>> savePlayerData(PlayerData data) async {
     try {
-      await (await HiveClient.playerDB).put(data.userID!, data.toJSON());
+      await (await HiveClient.gameDB).put(data.userID!, data.toJSON());
       return Left(Ok<void>());
     } on FormatException catch (e) {
       return Right(Failure(NullException(message: '${e.source} is null')));
