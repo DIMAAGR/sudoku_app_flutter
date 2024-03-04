@@ -75,7 +75,7 @@ Optamos por usar o Hive por várias razões:
 
 Neste projeto, utilizamos a arquitetura de repositórios e casos de uso para acessar e manipular os dados do Hive de forma organizada e modular. Aqui está como isso é feito:
 
-- **Repositórios**: As classes `PlayerRepository` e `GameRepository` implementam a interface `IPlayerRepository` e `IGameRepository`, respectivamente, para encapsular a lógica de acesso aos dados do Hive. Isso permite que os casos de uso interajam com os dados de forma independente da implementação específica do banco de dados.
+- **Repositórios**: As classe `PlayerRepository` implementa a interface `IPlayerRepository` para encapsular a lógica de acesso aos dados do Hive. Isso permite que os casos de uso interajam com os dados de forma independente da implementação específica do banco de dados.
 
 - **Casos de Uso**: Os casos de uso, como `LoadPlayerDataUseCase` e `SavePlayerDataUseCase`, são responsáveis por orquestrar as operações relacionadas aos dados do jogador. Eles chamam os métodos apropriados nos repositórios para carregar e salvar os dados, garantindo uma separação clara das responsabilidades e uma maior reutilização de código.
 
